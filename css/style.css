@@ -1,0 +1,116 @@
+:root {
+    --karofi-blue: #00ADEF;   /* Màu xanh đặc trưng Karofi */
+    --karofi-dark: #0056b3;
+    --accent-color: #ff6b00;  /* Màu cam nút mua hàng */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================= Top Bar ================ */
+.top-bar {
+    background-color: var(--karofi-blue);
+    color: white;
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+/* ================= Navbar ================= */
+.navbar-brand {
+    font-weight: bold;
+    color: var(--karofi-blue) !important;
+    font-size: 1.5rem;
+}
+
+/* ================= Hero Banner ================= */
+.hero-section {
+    position: relative;
+    min-height: 60vh;                 /* Chiều cao tối thiểu cho cảm giác hero rõ ràng */
+    display: flex;
+    align-items: center;              /* Canh giữa nội dung theo chiều dọc */
+    text-align: center;
+    color: #fff;
+
+    /* Parallax + overlay */
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),  /* overlay tối hơn cho dễ đọc chữ */
+        url('../assets/assets/images/banner.jpg');            /* ĐƯỜNG DẪN: dùng đúng như đang chạy */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;     /* Hiệu ứng parallax trên desktop */
+
+    padding: 120px 0 140px;
+}
+
+/* Text trong banner */
+.hero-section h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    margin-bottom: 1rem;
+}
+
+.hero-section .lead {
+    font-size: 1.05rem;
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* Nút CTA trong banner */
+.btn-hero {
+    padding: 0.9rem 2.5rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    background: var(--accent-color);
+    border: none;
+    color: #fff !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.3);
+    background: #ff7f1a;
+}
+
+/* Mobile tối ưu UI/UX */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll; /* mobile ít hỗ trợ fixed → tránh giật lag */
+        padding: 80px 0 90px;
+    }
+
+    .hero-section h1 {
+        font-size: 1.9rem;
+    }
+
+    .hero-section .lead {
+        font-size: 0.95rem;
+    }
+
+    .btn-hero {
+        width: 100%;
+    }
+}
+
+
+/* ================= Product Card ================= */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
