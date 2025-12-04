@@ -1,53 +1,41 @@
 :root {
-    --karofi-blue: #00adef;       /* Màu xanh Karofi */
+    --karofi-blue: #00ADEF;
     --karofi-dark: #0056b3;
-    --accent-color: #ff6b00;      /* Màu cam nút mua hàng */
-}
-
-/* ================= GLOBAL ================= */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+    --accent-color: #ff6b00;
 }
 
 body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #212529;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
 }
 
 /* ================= TOP BAR ================= */
 .top-bar {
     background-color: var(--karofi-blue);
-    color: #fff;
-    padding: 6px 0;
-    font-size: 0.9rem;
-}
-
-.top-bar i {
+    color: white;
+    padding: 8px 0;
     font-size: 0.9rem;
 }
 
 /* ================= NAVBAR ================= */
+.navbar {
+    padding: 10px 0;
+}
+
 .navbar-brand {
-    font-weight: 700;
+    font-weight: bold;
     color: var(--karofi-blue) !important;
-    font-size: 1.35rem;
+    font-size: 1.25rem;
+    white-space: normal !important;
+    line-height: 1.2;
+    max-width: 260px;     /* ĐÃ CHÈN MAX-WIDTH CHO BRAND */
 }
 
-.navbar .nav-link {
-    font-weight: 500;
-    padding-inline: 0.8rem;
-}
-
-.navbar .nav-link.active,
-.navbar .nav-link:hover {
-    color: var(--karofi-dark);
-}
-
-.btn-cta-navbar {
-    font-weight: 600;
-    font-size: 0.95rem;
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1rem;
+        max-width: 180px;
+    }
 }
 
 /* ================= HERO SECTION ================= */
@@ -60,10 +48,10 @@ body {
     color: #fff;
 
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-        url("../assets/assets/images/banner.jpg");
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('../assets/assets/images/banner.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -73,250 +61,116 @@ body {
 .hero-section h1 {
     font-size: 2.4rem;
     font-weight: 800;
-    letter-spacing: 0.03em;
-    margin-bottom: 1rem;
 }
 
 .hero-section .lead {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     max-width: 650px;
     margin: 0 auto;
-    opacity: 0.95;
 }
 
-/* Nút CTA trong banner */
 .btn-hero {
-    padding: 0.9rem 2.5rem;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 1rem;
+    padding: 0.9rem 2.4rem;
+    border-radius: 50px;
+    font-weight: bold;
     background: var(--accent-color);
+    color: #fff;
     border: none;
-    color: #fff !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.btn-hero:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
-    background: #ff7f1a;
+/* MOBILE HERO FIX */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+        min-height: 45vh;
+        padding: 60px 0 80px;
+    }
+    .hero-section h1 {
+        font-size: 1.6rem;
+    }
+    .btn-hero {
+        width: 100%;
+    }
 }
 
-/* ================= SERVICE BOXES ================= */
-.service-box {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 18px 10px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-}
-
+/* ================= SERVICE BOX ================= */
 .service-box i {
-    font-size: 1.7rem;
+    font-size: 2rem;
     color: var(--karofi-blue);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
-/* ================= PRODUCT CARDS ================= */
-.product-card {
+/* ================= PRODUCT CARD ================= */
+.card {
     border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    border-radius: 16px;
-    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+.card:hover {
+    transform: translateY(-4px);
 }
 
-.product-card .card-img-top {
-    height: 250px;
+.card-img-top {
+    height: 240px;
     object-fit: cover;
 }
 
-.product-badge {
-    top: 10px;
-    right: 10px;
-    border-radius: 999px;
-    padding-inline: 0.8rem;
-}
-
-.price-new {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--accent-color);
-}
-
-.price-old {
-    font-size: 0.95rem;
-    color: #888;
-    text-decoration: line-through;
-}
-
-.btn-buy {
-    background: var(--karofi-blue);
-    border: none;
-    font-weight: 600;
-}
-
-.btn-buy:hover {
-    background: var(--karofi-dark);
-}
-
-/* ================= CONTACT SECTION ================= */
-.contact-section {
-    scroll-margin-top: 80px; /* khi click anchor sẽ dễ nhìn hơn */
-}
-
-.contact-image-wrapper {
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-}
-
-.contact-image {
+/* ================= IMAGE + FORM SECTION ================= */
+#lien-he img {
     width: 100%;
-    height: auto;
-    display: block;
+    border-radius: 12px;
 }
 
-.contact-section h3 {
-    color: var(--karofi-dark);
+@media (max-width: 768px) {
+    #lien-he .col-md-6 {
+        margin-top: 25px;
+    }
 }
 
 /* ================= FOOTER ================= */
-.footer {
-    background: #111827;
-    color: #e5e7eb;
-    padding: 40px 0 24px;
-    margin-top: 40px;
-    font-size: 0.95rem;
+footer {
+    background: var(--karofi-blue);
+    color: #fff;
+    padding: 40px 0 20px;
 }
 
-.footer h4,
-.footer h5 {
+footer a {
     color: #fff;
 }
 
-.footer a {
-    color: #e5e7eb;
+/* MARGIN-RIGHT CHO PARAGRAPH BẠN YÊU CẦU */
+.footer-desc {
+    margin-right: 14rem;
 }
 
-.footer a:hover {
-    color: var(--karofi-blue);
-}
-
-.footer-divider {
-    border-color: rgba(255, 255, 255, 0.12);
+@media (max-width: 768px) {
+    .footer-desc {
+        margin-right: 0; /* tránh lỗi trên mobile */
+    }
 }
 
 /* ================= FLOATING ZALO ================= */
 .floating-zalo {
     position: fixed;
-    right: 18px;
-    bottom: 18px;
-    z-index: 999;
-    background: #0084ff;
+    bottom: 30px;
+    right: 25px;
+    background: #0068ff;
     color: #fff;
-    padding: 10px 16px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    display: inline-flex;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+    display: flex;
     align-items: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    gap: 6px;
+    text-decoration: none;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.25);
+    z-index: 999;
 }
 
-.floating-zalo:hover {
-    background: #006fd4;
-    transform: translateY(-2px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
-}
-
-/* ================= RESPONSIVE ================= */
-
-/* Tablet & down */
-@media (max-width: 991.98px) {
-    .navbar-brand {
-        font-size: 1.1rem;
-    }
-
-    .hero-section {
-        min-height: 50vh;
-        padding: 90px 0 100px;
-        background-attachment: scroll; /* tránh giật trên mobile */
-    }
-
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-
-    .hero-section .lead {
-        font-size: 0.98rem;
-    }
-
-    .service-box {
-        padding: 16px 8px;
-    }
-
-    .contact-section {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
-
-    .contact-section .col-md-6:first-child {
-        order: 1;
-        margin-bottom: 1.5rem;
-    }
-
-    .contact-section .col-md-6:last-child {
-        order: 2;
-    }
-}
-
-/* Mobile & small screen */
-@media (max-width: 767.98px) {
-    .top-bar {
-        font-size: 0.8rem;
-        text-align: center;
-    }
-
-    .top-bar .container {
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .hero-section {
-        padding: 70px 0 80px;
-    }
-
-    .hero-section h1 {
-        font-size: 1.7rem;
-    }
-
-    .btn-hero {
-        width: 100%;
-    }
-
-    .product-card .card-img-top {
-        height: 220px;
-    }
-
-    .footer {
-        text-align: center;
-    }
-
-    .footer .row > div {
-        text-align: left;
-    }
-
+@media (max-width: 480px) {
     .floating-zalo {
-        right: 12px;
-        bottom: 12px;
-        padding: 8px 12px;
-        font-size: 0.85rem;
+        padding: 10px 14px;
+        font-size: 0.8rem;
     }
 }
